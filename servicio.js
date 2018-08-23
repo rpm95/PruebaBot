@@ -11,13 +11,13 @@ restService.use(bodyParser.urlencoded({
 
 restService.use(bodyParser.json());
 
-restService.post('/conoces', function(req, res){
+restService.post("/echo", function(req, res) {
     var speech =
-    req.body.result &&
-    req.body.result.parameters &&
-    req.body.result.parameters.any
-      ? req.body.result.parameters.any
-      : "Seems like some problem. Speak again.";
+        req.body.result &&
+        req.body.result.parameters &&
+        req.body.result.parameters.echoText
+            ? req.body.result.parameters.echoText
+            : "Seems like some problem. Speak again.";
     return res.json({
         speech: speech,
         displayText: speech,
